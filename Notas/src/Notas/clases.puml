@@ -1,0 +1,39 @@
+@startuml
+
+class VentanaPrincipal {
+    - Container contenedor
+    - JLabel nota1
+    - JLabel nota2
+    - JLabel nota3
+    - JLabel nota4
+    - JLabel nota5
+    - JLabel promedio
+    - JLabel desviacion
+    - JLabel mayor
+    - JLabel menor
+    - JTextField campoNota1
+    - JTextField campoNota2
+    - JTextField campoNota3
+    - JTextField campoNota4
+    - JTextField campoNota5
+    - JButton calcular
+    - JButton limpiar
+
+    + VentanaPrincipal()
+    - inicio()
+    + actionPerformed(evento: ActionEvent)
+}
+
+class Notas {
+    + double[] listaNotas
+    + calcularPromedio(): double
+    + calcularDesviacion(): double
+    + calcularMayor(): double
+    + calcularMenor(): double
+}
+
+VentanaPrincipal --|> JFrame
+VentanaPrincipal ..|> ActionListener
+VentanaPrincipal --> Notas : usa
+
+@enduml
